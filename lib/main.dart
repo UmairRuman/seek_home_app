@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seek_home_app/pages/login_page/view/login_page_view.dart';
+import 'package:seek_home_app/chatPage/firstChatPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: LoginPageView(),
+      home: ChatScreen(),
     );
   }
 }
