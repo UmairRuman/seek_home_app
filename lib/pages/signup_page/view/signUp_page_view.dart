@@ -2,9 +2,9 @@ import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:seek_home_app/pages/signup_page/widgets/buttons_signUp_page.dart';
-import 'package:seek_home_app/pages/signup_page/widgets/input_widgets_signUp_page.dart';
-import 'package:seek_home_app/pages/signup_page/widgets/text_widgets_signup_page.dart';
+import 'package:seek_home_app/pages/signup_page/view/widgets/buttons_signUp_page.dart';
+import 'package:seek_home_app/pages/signup_page/view/widgets/input_widgets_signUp_page.dart';
+import 'package:seek_home_app/pages/signup_page/view/widgets/text_widgets_signup_page.dart';
 import 'package:seek_home_app/utils/common/top_rounded_rectangle.dart';
 import 'package:seek_home_app/utils/constants.dart';
 

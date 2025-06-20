@@ -1,9 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:seek_home_app/pages/login_page/widgets/buttons_login_page.dart';
-import 'package:seek_home_app/pages/login_page/widgets/input_widgets_login_page.dart';
-import 'package:seek_home_app/pages/login_page/widgets/text_widgets_login_page.dart';
+import 'package:seek_home_app/pages/login_page/view/widgets/buttons_login_page.dart';
+import 'package:seek_home_app/pages/login_page/view/widgets/input_widgets_login_page.dart';
+import 'package:seek_home_app/pages/login_page/view/widgets/text_widgets_login_page.dart';
 import 'package:seek_home_app/utils/common/top_rounded_rectangle.dart';
 import 'package:seek_home_app/utils/constants.dart';
 
