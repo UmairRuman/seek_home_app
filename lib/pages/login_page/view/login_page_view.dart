@@ -8,6 +8,7 @@ import 'package:seek_home_app/utils/common/top_rounded_rectangle.dart';
 import 'package:seek_home_app/utils/constants.dart';
 
 class LoginPageView extends StatefulWidget {
+  static const pageName = "/loginPage";
   const LoginPageView({super.key});
 
   @override

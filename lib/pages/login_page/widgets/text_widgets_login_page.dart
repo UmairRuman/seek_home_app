@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seek_home_app/pages/signup_page/view/signUp_page_view.dart';
 
 class DontHaveAnAccountTextWidget extends StatelessWidget {
   final bool isSmallScreen;
@@ -23,7 +24,7 @@ class DontHaveAnAccountTextWidget extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            // Handle sign up
+            Navigator.pushNamed(context, SignupPageView.pageName);
           },
           child: Text(
             'Sign-up',
