@@ -1,35 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:seek_home_app/utils/common/bottom_rounded_rectangle.dart';
 
-class LoginPageTopImage extends StatelessWidget {
-  final double screenHeight;
-  const LoginPageTopImage({super.key, required this.screenHeight});
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: CustomRoundedRectangleFromBottom(),
-      child: Container(
-        height: screenHeight * 0.35,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/login_page_logo.jpg'),
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class LoginInputFieldBuilder extends StatefulWidget {
+class SignUpInputFieldBuilder extends StatefulWidget {
   final double screenWidth;
   final bool isSmallScreen;
   final TextEditingController controller;
   final String hintText;
   final IconData icon;
   final bool isPassword;
-  const LoginInputFieldBuilder({
+  const SignUpInputFieldBuilder({
     super.key,
     required this.isSmallScreen,
     required this.screenWidth,
@@ -40,10 +18,11 @@ class LoginInputFieldBuilder extends StatefulWidget {
   });
 
   @override
-  State<LoginInputFieldBuilder> createState() => _LoginInputFieldBuilderState();
+  State<SignUpInputFieldBuilder> createState() =>
+      _LoginInputFieldBuilderState();
 }
 
-class _LoginInputFieldBuilderState extends State<LoginInputFieldBuilder> {
+class _LoginInputFieldBuilderState extends State<SignUpInputFieldBuilder> {
   @override
   Widget build(BuildContext context) {
     return Container(

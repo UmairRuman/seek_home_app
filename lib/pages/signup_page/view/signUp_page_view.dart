@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:seek_home_app/pages/signup_page/widgets/input_widgets_signUp_page.dart';
 import 'package:seek_home_app/utils/common/bottom_rounded_rectangle.dart';
 import 'package:seek_home_app/utils/common/top_rounded_rectangle.dart';
 import 'package:seek_home_app/utils/constants.dart';
@@ -127,13 +128,27 @@ class _SignupPageViewState extends State<SignupPageView> {
                                           ),
                                         ),
                                       ),
+                                      // User name field
+                                      Expanded(
+                                        flex: 10,
+                                        child: SignUpInputFieldBuilder(
+                                          isSmallScreen: isSmallScreen,
+                                          screenWidth: screenWidth,
+                                          controller: _usernameController,
+                                          hintText: 'Name',
+                                          icon: Icons.person_outline,
+                                          isPassword: false,
+                                        ),
+                                      ),
                                       const Spacer(flex: 3),
                                       // Username field
                                       Expanded(
                                         flex: 10,
-                                        child: _buildInputField(
+                                        child: SignUpInputFieldBuilder(
+                                          isSmallScreen: isSmallScreen,
+                                          screenWidth: screenWidth,
                                           controller: _usernameController,
-                                          hintText: 'User name',
+                                          hintText: 'Email',
                                           icon: Icons.person_outline,
                                           isPassword: false,
                                         ),
@@ -142,35 +157,13 @@ class _SignupPageViewState extends State<SignupPageView> {
                                       // Password field
                                       Expanded(
                                         flex: 10,
-                                        child: _buildInputField(
-                                          controller: _passwordController,
+                                        child: SignUpInputFieldBuilder(
+                                          isSmallScreen: isSmallScreen,
+                                          screenWidth: screenWidth,
+                                          controller: _usernameController,
                                           hintText: 'Password',
-                                          icon: Icons.lock_outline,
-                                          isPassword: true,
-                                        ),
-                                      ),
-
-                                      // Forgot password
-                                      Expanded(
-                                        flex: 5,
-                                        child: Align(
-                                          alignment: Alignment.centerLeft,
-                                          child: TextButton(
-                                            onPressed: () {
-                                              // Handle forgot password
-                                            },
-                                            child: Text(
-                                              'Forgot Password?',
-                                              style: TextStyle(
-                                                color: Colors.white.withOpacity(
-                                                  0.8,
-                                                ),
-                                                fontSize: 14,
-                                                decoration:
-                                                    TextDecoration.underline,
-                                              ),
-                                            ),
-                                          ),
+                                          icon: Icons.person_outline,
+                                          isPassword: false,
                                         ),
                                       ),
 
@@ -203,42 +196,7 @@ class _SignupPageViewState extends State<SignupPageView> {
                                       ),
                                       const Spacer(flex: 2),
                                       // Social login buttons
-                                      Expanded(
-                                        flex: 8,
-                                        child: _buildSocialButton(
-                                          text: 'Login via Facebook',
-                                          icon: Icons.facebook,
-                                          color: const Color(0xFF3B5998),
-                                          onPressed: () {
-                                            // Handle Facebook login
-                                          },
-                                        ),
-                                      ),
-                                      const Spacer(flex: 1),
-                                      Expanded(
-                                        flex: 8,
-                                        child: _buildSocialButton(
-                                          text: 'Login via Google',
-                                          icon: Icons.g_mobiledata,
-                                          color: const Color(0xFFDB4437),
-                                          onPressed: () {
-                                            // Handle Google login
-                                          },
-                                        ),
-                                      ),
-                                      const Spacer(flex: 1),
-                                      Expanded(
-                                        flex: 8,
-                                        child: _buildSocialButton(
-                                          text: 'Login via Apple',
-                                          icon: Icons.apple,
-                                          color: const Color(0xFF000000),
-                                          onPressed: () {
-                                            // Handle Apple login
-                                          },
-                                        ),
-                                      ),
-                                      const Spacer(flex: 1),
+
                                       // Sign up link
                                       Expanded(
                                         flex: 10,
@@ -247,7 +205,7 @@ class _SignupPageViewState extends State<SignupPageView> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "don't have an account? ",
+                                              "Already have an account? ",
                                               style: TextStyle(
                                                 color: Colors.white.withOpacity(
                                                   0.8,
@@ -260,7 +218,7 @@ class _SignupPageViewState extends State<SignupPageView> {
                                                 // Handle sign up
                                               },
                                               child: const Text(
-                                                'Sign-up',
+                                                'Login_in',
                                                 style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 14,
@@ -286,85 +244,6 @@ class _SignupPageViewState extends State<SignupPageView> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildInputField({
-    required TextEditingController controller,
-    required String hintText,
-    required IconData icon,
-    required bool isPassword,
-  }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.white.withOpacity(0.3), width: 1),
-      ),
-      child: TextField(
-        controller: controller,
-        obscureText: isPassword ? _obscurePassword : false,
-        style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: TextStyle(
-            color: Colors.white.withOpacity(0.7),
-            fontSize: 16,
-          ),
-          prefixIcon: Icon(
-            icon,
-            color: Colors.white.withOpacity(0.7),
-            size: 20,
-          ),
-          suffixIcon:
-              isPassword
-                  ? IconButton(
-                    icon: Icon(
-                      _obscurePassword
-                          ? Icons.visibility
-                          : Icons.visibility_off,
-                      color: Colors.white.withOpacity(0.7),
-                      size: 20,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _obscurePassword = !_obscurePassword;
-                      });
-                    },
-                  )
-                  : null,
-          border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSocialButton({
-    required String text,
-    required IconData icon,
-    required Color color,
-    required VoidCallback onPressed,
-  }) {
-    return ElevatedButton.icon(
-      onPressed: onPressed,
-      icon: Icon(icon, color: Colors.white, size: 20),
-      label: Text(
-        text,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-        ),
-      ),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color.withOpacity(0.8),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        elevation: 1,
       ),
     );
   }

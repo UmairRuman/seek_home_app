@@ -92,7 +92,7 @@ class _LoginPageViewState extends State<LoginPageView> {
                               // Email field
                               Expanded(
                                 flex: 10,
-                                child: InputFieldBuilder(
+                                child: LoginInputFieldBuilder(
                                   isSmallScreen: isSmallScreen,
                                   screenWidth: screenWidth,
                                   controller: _usernameController,
@@ -105,7 +105,7 @@ class _LoginPageViewState extends State<LoginPageView> {
                               // Password field
                               Expanded(
                                 flex: 10,
-                                child: InputFieldBuilder(
+                                child: LoginInputFieldBuilder(
                                   screenWidth: screenWidth,
                                   isSmallScreen: isSmallScreen,
                                   controller: _passwordController,
