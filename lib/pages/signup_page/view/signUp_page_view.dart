@@ -2,7 +2,8 @@ import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:seek_home_app/utils/common/signUp_login_custom_painter.dart';
+import 'package:seek_home_app/utils/common/bottom_rounded_rectangle.dart';
+import 'package:seek_home_app/utils/common/top_rounded_rectangle.dart';
 import 'package:seek_home_app/utils/constants.dart';
 
 class SignupPageView extends StatefulWidget {
@@ -33,14 +34,17 @@ class _SignupPageViewState extends State<SignupPageView> {
               top: 0,
               left: 0,
               right: 0,
-              child: Container(
-                height: screenHeight * 0.35,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      'assets/images/login_page_logo.jpg',
-                    ), // Replace with your building image
-                    fit: BoxFit.cover,
+              child: ClipPath(
+                clipper: CustomRoundedRectangleFromBottom(),
+                child: Container(
+                  height: screenHeight * 0.35,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        'assets/images/login_page_logo.jpg',
+                      ), // Replace with your building image
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -53,7 +57,7 @@ class _SignupPageViewState extends State<SignupPageView> {
               right: 0,
               bottom: 0,
               child: ClipPath(
-                clipper: CustomRoundedClipper(),
+                clipper: CustomRoundedRectangleFromTop(),
                 child: LayoutBuilder(
                   builder:
                       (context, constraints) => Container(
