@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seek_home_app/chatPage/BuyingPage.dart';
 import 'package:seek_home_app/chatPage/ChatCard.dart';
+import 'package:seek_home_app/chatPage/CustomBottomNavBarClipper.dart';
 import 'package:seek_home_app/chatPage/SellingPage.dart';
 import 'package:seek_home_app/chatPage/unreadPage.dart';
 
@@ -20,43 +21,78 @@ class _ChatScreenState extends State<ChatScreen> {
     final size = MediaQuery.of(context).size;
     final double padding = size.width * 0.05;
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.blue.shade200,
-        currentIndex: selectedIndex,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        selectedItemColor: Colors.black38,
-        elevation: 20,
-        unselectedItemColor: Colors.white,
-        onTap: (value) {
-          setState(() {
-            selectedIndex = value;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-            tooltip: 'Go to Home',
+      bottomNavigationBar: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          ClipPath(
+            clipper: CustomBottomNavBarClipper(),
+            child: Container(
+              height:
+                  MediaQuery.of(context).size.height *
+                  0.09, // responsive height
+              color: Colors.blue.shade200,
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                backgroundColor: Colors.transparent,
+                currentIndex: selectedIndex,
+                selectedItemColor: Colors.red,
+                unselectedItemColor: Colors.green,
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                elevation: 0,
+                onTap: (value) {
+                  setState(() {
+                    selectedIndex = value;
+                  });
+                },
+                items: [
+                  BottomNavigationBarItem(
+                    icon: Image.asset('assets/images/Home.png', height: 24),
+                    label: '',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image.asset('assets/images/massage.png', height: 24),
+                    label: '',
+                  ),
+                  BottomNavigationBarItem(icon: Icon(Icons.abc), label: ''),
+
+                  BottomNavigationBarItem(
+                    icon: Image.asset('assets/images/four.png', height: 24),
+                    label: '',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image.asset('assets/images/call.png', height: 24),
+                    label: '',
+                  ),
+                ],
+              ),
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-            tooltip: 'Go to School',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-            tooltip: 'Go to Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-            tooltip: 'Go to Settings',
+
+          // Optional: Center lifted icon (comment out if not needed)
+          Positioned(
+            top: -30,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: GestureDetector(
+                onTap: () {
+                  print("Center icon tapped");
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Image.asset(
+                    'assets/images/Group.png',
+                    height: 80,
+                    width: 80,
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),
+
       body: SafeArea(
         child: Column(
           children: [
