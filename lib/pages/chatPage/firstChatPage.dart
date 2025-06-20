@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:seek_home_app/chatPage/BuyingPage.dart';
-import 'package:seek_home_app/chatPage/ChatCard.dart';
-import 'package:seek_home_app/chatPage/SellingPage.dart';
-import 'package:seek_home_app/chatPage/unreadPage.dart';
+import 'package:seek_home_app/pages/chatPage/BuyingPage.dart';
+import 'package:seek_home_app/pages/chatPage/ChatCard.dart';
+import 'package:seek_home_app/pages/chatPage/SellingPage.dart';
+import 'package:seek_home_app/pages/chatPage/unreadPage.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});

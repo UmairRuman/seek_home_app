@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seek_home_app/pages/login_page/view/login_page_view.dart';
+import 'package:seek_home_app/pages/signup_page/view/signUp_page_view.dart';
 
 void main() {
   runApp(const MyApp());
