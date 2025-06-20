@@ -23,12 +23,16 @@ class LoginPageTopImage extends StatelessWidget {
 }
 
 class InputFieldBuilder extends StatefulWidget {
+  final double screenWidth;
+  final bool isSmallScreen;
   final TextEditingController controller;
   final String hintText;
   final IconData icon;
   final bool isPassword;
   const InputFieldBuilder({
     super.key,
+    required this.isSmallScreen,
+    required this.screenWidth,
     required this.controller,
     required this.hintText,
     required this.icon,
@@ -43,6 +47,10 @@ class _InputFieldBuilderState extends State<InputFieldBuilder> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width:
+          widget.isSmallScreen
+              ? widget.screenWidth * 0.8
+              : widget.screenWidth * 0.5,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.2),
         borderRadius: BorderRadius.circular(8),
@@ -56,7 +64,7 @@ class _InputFieldBuilderState extends State<InputFieldBuilder> {
           hintText: widget.hintText,
           hintStyle: TextStyle(
             color: Colors.white.withOpacity(0.7),
-            fontSize: 16,
+            fontSize: 14,
           ),
           prefixIcon: Icon(
             widget.icon,

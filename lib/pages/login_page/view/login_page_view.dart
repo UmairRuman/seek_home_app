@@ -65,14 +65,14 @@ class _LoginPageViewState extends State<LoginPageView> {
                         padding: EdgeInsets.symmetric(
                           horizontal:
                               isSmallScreen
-                                  ? screenWidth * 0.2
-                                  : screenWidth * 0.15,
+                                  ? screenWidth * 0.10
+                                  : screenWidth * 0.10,
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(top: screenHeight * 0.2),
                           child: Column(
                             children: [
-                              const Spacer(flex: 5),
+                              const Spacer(flex: 4),
                               // Login title
                               Expanded(
                                 flex: 12,
@@ -89,12 +89,14 @@ class _LoginPageViewState extends State<LoginPageView> {
                                 ),
                               ),
                               const Spacer(flex: 3),
-                              // Username field
+                              // Email field
                               Expanded(
                                 flex: 10,
                                 child: InputFieldBuilder(
+                                  isSmallScreen: isSmallScreen,
+                                  screenWidth: screenWidth,
                                   controller: _usernameController,
-                                  hintText: 'User name',
+                                  hintText: 'Email',
                                   icon: Icons.person_outline,
                                   isPassword: false,
                                 ),
@@ -104,6 +106,8 @@ class _LoginPageViewState extends State<LoginPageView> {
                               Expanded(
                                 flex: 10,
                                 child: InputFieldBuilder(
+                                  screenWidth: screenWidth,
+                                  isSmallScreen: isSmallScreen,
                                   controller: _passwordController,
                                   hintText: 'Password',
                                   icon: Icons.lock_outline,
@@ -114,16 +118,27 @@ class _LoginPageViewState extends State<LoginPageView> {
                               // Forgot password
                               Expanded(
                                 flex: 5,
-                                child: ForgotPassWordTextWidget(),
+                                child: ForgotPassWordTextWidget(
+                                  isSmallScreen: isSmallScreen,
+                                  screenWidth: screenWidth,
+                                ),
                               ),
-
+                              Spacer(flex: 1),
                               // Login button
-                              Expanded(flex: 8, child: LoginButton()),
+                              Expanded(
+                                flex: 8,
+                                child: LoginButton(
+                                  isSmallScreen: isSmallScreen,
+                                  screenWidth: screenWidth,
+                                ),
+                              ),
                               const Spacer(flex: 2),
                               // Social login buttons
                               Expanded(
                                 flex: 8,
-                                child: buttonBuilder(
+                                child: socialButtonBuilder(
+                                  isSmallScreen: isSmallScreen,
+                                  screenWidth: screenWidth,
                                   text: 'Login via Facebook',
                                   icon: Icons.facebook,
                                   color: const Color(0xFF3B5998),
@@ -135,7 +150,9 @@ class _LoginPageViewState extends State<LoginPageView> {
                               const Spacer(flex: 1),
                               Expanded(
                                 flex: 8,
-                                child: buttonBuilder(
+                                child: socialButtonBuilder(
+                                  isSmallScreen: isSmallScreen,
+                                  screenWidth: screenWidth,
                                   text: 'Login via Google',
                                   icon: Icons.g_mobiledata,
                                   color: const Color(0xFFDB4437),
@@ -147,7 +164,9 @@ class _LoginPageViewState extends State<LoginPageView> {
                               const Spacer(flex: 1),
                               Expanded(
                                 flex: 8,
-                                child: buttonBuilder(
+                                child: socialButtonBuilder(
+                                  isSmallScreen: isSmallScreen,
+                                  screenWidth: screenWidth,
                                   text: 'Login via Apple',
                                   icon: Icons.apple,
                                   color: const Color(0xFF000000),
@@ -160,7 +179,10 @@ class _LoginPageViewState extends State<LoginPageView> {
                               // Sign up link
                               Expanded(
                                 flex: 10,
-                                child: DontHaveAnAccountTextWidget(),
+                                child: DontHaveAnAccountTextWidget(
+                                  isSmallScreen: isSmallScreen,
+                                  screenWidth: screenWidth,
+                                ),
                               ),
                             ],
                           ),

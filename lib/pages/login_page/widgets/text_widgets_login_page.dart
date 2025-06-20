@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class DontHaveAnAccountTextWidget extends StatelessWidget {
-  const DontHaveAnAccountTextWidget({super.key});
+  final bool isSmallScreen;
+  final double screenWidth;
+  const DontHaveAnAccountTextWidget({
+    super.key,
+    required this.isSmallScreen,
+    required this.screenWidth,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -9,20 +15,22 @@ class DontHaveAnAccountTextWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "don't have an account? ",
-          style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 14),
+          "Don't have an account? ",
+          style: TextStyle(
+            color: Colors.white.withOpacity(0.8),
+            fontSize: isSmallScreen ? 13 : 16,
+          ),
         ),
         GestureDetector(
           onTap: () {
             // Handle sign up
           },
-          child: const Text(
+          child: Text(
             'Sign-up',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 14,
+              fontSize: isSmallScreen ? 13 : 16,
               fontWeight: FontWeight.w600,
-              decoration: TextDecoration.underline,
             ),
           ),
         ),
@@ -32,22 +40,32 @@ class DontHaveAnAccountTextWidget extends StatelessWidget {
 }
 
 class ForgotPassWordTextWidget extends StatelessWidget {
-  const ForgotPassWordTextWidget({super.key});
+  final bool isSmallScreen;
+  final double screenWidth;
+  const ForgotPassWordTextWidget({
+    super.key,
+    required this.isSmallScreen,
+    required this.screenWidth,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: TextButton(
-        onPressed: () {
-          // Handle forgot password
-        },
-        child: Text(
-          'Forgot Password?',
-          style: TextStyle(
-            color: Colors.white.withOpacity(0.8),
-            fontSize: 14,
-            decoration: TextDecoration.underline,
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: isSmallScreen ? screenWidth * 0 : screenWidth * 0.15,
+      ),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: TextButton(
+          onPressed: () {
+            // Handle forgot password
+          },
+          child: Text(
+            'Forgot Password?',
+            style: TextStyle(
+              color: Colors.white.withOpacity(0.8),
+              fontSize: 14,
+            ),
           ),
         ),
       ),
@@ -82,9 +100,9 @@ class LoginTextWidget extends StatelessWidget {
       'Login',
       style: TextStyle(
         fontSize: isSmallScreen ? 36 : 42,
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w500,
         color: Colors.white,
-        letterSpacing: 1.2,
+        letterSpacing: 1.5,
       ),
     );
   }
