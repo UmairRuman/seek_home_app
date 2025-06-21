@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:seek_home_app/pages/chat_page/BuyingPage.dart';
-import 'package:seek_home_app/pages/chat_page/ChatCard.dart';
-import 'package:seek_home_app/pages/chat_page/SellingPage.dart';
-import 'package:seek_home_app/pages/chat_page/unreadPage.dart';
+import 'package:seek_home_app/pages/chat_pages/BuyingPage.dart';
+import 'package:seek_home_app/pages/chat_pages/ChatCard.dart';
+import 'package:seek_home_app/pages/chat_pages/SellingPage.dart';
+import 'package:seek_home_app/pages/chat_pages/unreadPage.dart';
 
 class ChatScreen extends StatefulWidget {
+  static const pageName = "/chatScreen";
   const ChatScreen({super.key});
 
   @override
@@ -20,43 +21,6 @@ class _ChatScreenState extends State<ChatScreen> {
     final size = MediaQuery.of(context).size;
     final double padding = size.width * 0.05;
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.blue.shade200,
-        currentIndex: selectedIndex,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        selectedItemColor: Colors.black38,
-        elevation: 20,
-        unselectedItemColor: Colors.white,
-        onTap: (value) {
-          setState(() {
-            selectedIndex = value;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-            tooltip: 'Go to Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-            tooltip: 'Go to School',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-            tooltip: 'Go to Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-            tooltip: 'Go to Settings',
-          ),
-        ],
-      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -83,10 +47,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (_) => ChatScreen()),
-                            );
+                            Navigator.pushNamed(context, ChatScreen.pageName);
                           },
                           child: const Center(
                             child: Text(
@@ -104,10 +65,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (_) => Sellingpage()),
-                            );
+                            Navigator.pushNamed(context, BuyingPage.pageName);
                           },
                           child: const Center(
                             child: Text(
@@ -124,10 +82,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (_) => Buyingpage()),
-                            );
+                            Navigator.pushNamed(context, SellingPage.pageName);
                           },
                           child: const Center(
                             child: Text(
@@ -171,10 +126,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Unreadpage()),
-                      );
+                      Navigator.pushNamed(context, UnreadPage.pageName);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade200,

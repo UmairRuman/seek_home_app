@@ -28,6 +28,7 @@ class _LoginPageViewState extends State<LoginPageView> {
 
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
             Positioned(
@@ -118,7 +119,7 @@ class _LoginPageViewState extends State<LoginPageView> {
 
                               // Forgot password
                               Expanded(
-                                flex: 5,
+                                flex: 7,
                                 child: ForgotPassWordTextWidget(
                                   isSmallScreen: isSmallScreen,
                                   screenWidth: screenWidth,
@@ -179,7 +180,7 @@ class _LoginPageViewState extends State<LoginPageView> {
                               const Spacer(flex: 1),
                               // Sign up link
                               Expanded(
-                                flex: 10,
+                                flex: 8,
                                 child: DontHaveAnAccountTextWidget(
                                   isSmallScreen: isSmallScreen,
                                   screenWidth: screenWidth,

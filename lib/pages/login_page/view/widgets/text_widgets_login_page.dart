@@ -24,7 +24,7 @@ class DontHaveAnAccountTextWidget extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, SignupPageView.pageName);
+            Navigator.pushReplacementNamed(context, SignupPageView.pageName);
           },
           child: Text(
             'Sign-up',

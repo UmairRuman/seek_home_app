@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:seek_home_app/pages/home_page/view/home_page_view.dart';
+import 'package:seek_home_app/pages/navigation_controller_page/navigation_controller_page.dart';
 
 Widget socialButtonBuilder({
   required bool isSmallScreen,
@@ -49,6 +51,7 @@ class LoginButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           // Handle login
+          Navigator.pushNamed(context, NavigationControllerPage.pageName);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF2C3E50),

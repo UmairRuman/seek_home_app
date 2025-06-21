@@ -24,7 +24,7 @@ class AlreadyHaveAnAccountTextWidget extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, LoginPageView.pageName);
+            Navigator.pushReplacementNamed(context, LoginPageView.pageName);
           },
           child: Text(
             'Log-in',

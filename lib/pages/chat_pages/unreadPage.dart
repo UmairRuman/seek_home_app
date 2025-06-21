@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Sellingpage extends StatelessWidget {
-  const Sellingpage({super.key});
+class UnreadPage extends StatelessWidget {
+  static const pageName = "/unreadPage";
+  const UnreadPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Selling Chats"),
+        title: const Text("Unread Chats"),
         backgroundColor: Colors.blue.shade200,
         elevation: 0,
       ),
@@ -15,12 +16,12 @@ class Sellingpage extends StatelessWidget {
         children: [
           const SizedBox(height: 10),
 
-          // 🔍 Optional Search Bar
+          // Optional Search Bar
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: TextField(
               decoration: InputDecoration(
-                hintText: "Search chats...",
+                hintText: "Search unread chats...",
                 prefixIcon: const Icon(Icons.search),
                 filled: true,
                 fillColor: Colors.grey.shade200,
@@ -35,13 +36,13 @@ class Sellingpage extends StatelessWidget {
 
           const SizedBox(height: 10),
 
-          // 🔽 Chat List
+          // Unread Chat List
           Expanded(
             child: ListView.builder(
+              itemCount: 4, // dummy count for unread chats
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              itemCount: 6, // dummy count
               itemBuilder: (context, index) {
-                return const ChatTile();
+                return const UnreadChatTile();
               },
             ),
           ),
@@ -51,8 +52,8 @@ class Sellingpage extends StatelessWidget {
   }
 }
 
-class ChatTile extends StatelessWidget {
-  const ChatTile({super.key});
+class UnreadChatTile extends StatelessWidget {
+  const UnreadChatTile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -74,8 +75,8 @@ class ChatTile extends StatelessWidget {
         children: [
           const CircleAvatar(
             radius: 25,
-            backgroundColor: Colors.blue,
-            child: Icon(Icons.person, color: Colors.white),
+            backgroundColor: Colors.orange,
+            child: Icon(Icons.mark_email_unread, color: Colors.white),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -83,21 +84,18 @@ class ChatTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text(
-                  "Buyer Name",
+                  "Unread User",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 SizedBox(height: 4),
                 Text(
-                  "Interested in your listed item...",
+                  "You have unread messages...",
                   style: TextStyle(color: Colors.black54),
                 ),
               ],
             ),
           ),
-          const Text(
-            "2:45 PM",
-            style: TextStyle(color: Colors.grey, fontSize: 12),
-          ),
+          const Icon(Icons.mark_chat_unread, color: Colors.red),
         ],
       ),
     );
