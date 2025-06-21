@@ -21,43 +21,6 @@ class _ChatScreenState extends State<ChatScreen> {
     final size = MediaQuery.of(context).size;
     final double padding = size.width * 0.05;
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.blue.shade200,
-        currentIndex: selectedIndex,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        selectedItemColor: Colors.black38,
-        elevation: 20,
-        unselectedItemColor: Colors.white,
-        onTap: (value) {
-          setState(() {
-            selectedIndex = value;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-            tooltip: 'Go to Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-            tooltip: 'Go to School',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-            tooltip: 'Go to Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-            tooltip: 'Go to Settings',
-          ),
-        ],
-      ),
       body: SafeArea(
         child: Column(
           children: [
